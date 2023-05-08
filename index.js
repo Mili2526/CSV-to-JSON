@@ -1,5 +1,6 @@
 const csvFileInput = document.getElementById("csvFile");
 const convertBtn = document.getElementById("convertBtn");
+const result = document.getElementById("result");
 
 convertBtn.addEventListener("click", () => {
   const csvFile = csvFileInput.files[0];
@@ -7,6 +8,7 @@ convertBtn.addEventListener("click", () => {
   reader.onload = () => {
     const csvData = reader.result;
     const jsonData = csvToJson(csvData);
+    result.innerHTML = "Your Output Is Logged In Console";
     console.log(jsonData);
   };
   reader.readAsText(csvFile);
